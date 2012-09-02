@@ -77,3 +77,22 @@
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
 ;;; init.el ends here
+
+(setq scss-compile-at-save nil)
+
+;; Auto Complete
+(require 'auto-complete-config)
+(auto-complete-mode)
+(ac-config-default)
+
+
+(setq ac-auto-start t)
+(global-set-key (kbd "M-TAB") 'ac-start)
+
+;; org-mode
+(setq org-agenda-files (quote ("~/docs/text/org")))
+
+(defun ruby-replace-hash-rocket ()
+  "Replace :symbol => value with symbol: value"
+  (interactive)
+  (query-replace-regexp ":\\(\\w+\\) =>" "\\1:"))
