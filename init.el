@@ -1,9 +1,13 @@
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 
 ;; Load path etc.
 (setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name)))
+                     (or (buffer-file-name) load-file-name)))
 
-(add-to-list 'load-path (concat dotfiles-dir "/starter-kit"))
+(add-to-list 'load-path (concat dotfiles-dir "starter-kit"))
 
 (load-file (concat dotfiles-dir "elpa.el"))
 (load-file (concat dotfiles-dir "startup-packages.el"))
@@ -13,8 +17,11 @@
 ;; backport some functionality to Emacs 22 if needed
 (require 'dominating-file)
 
+
+(insert "IARSTN")
 (load-file (concat dotfiles-dir "starter-kit.el"))
 (load-file (concat dotfiles-dir "system-specific.el"))
+(load-file (concat dotfiles-dir "languages.el"))
 
 (setq scss-compile-at-save nil)
 
