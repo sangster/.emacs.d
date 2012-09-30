@@ -1,1 +1,4 @@
-(setq-default c-basic-offset 4)
+
+(c-set-style "linux")
+(set-variable c-basic-offset 4)
+

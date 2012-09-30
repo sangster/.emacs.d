@@ -18,7 +18,6 @@
 (require 'dominating-file)
 
 
-(insert "IARSTN")
 (load-file (concat dotfiles-dir "starter-kit.el"))
 (load-file (concat dotfiles-dir "system-specific.el"))
 (load-file (concat dotfiles-dir "languages.el"))
