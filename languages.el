@@ -6,3 +6,6 @@
 
 (add-hook 'c-mode-hook
   (lambda () (load-file (concat languages-dir "c.el"))))
+
+(add-hook 'scss-mode-hook
+  (lambda () (load-file (concat languages-dir "scss.el"))))
