@@ -9,3 +9,6 @@
 
 (add-hook 'scss-mode-hook
   (lambda () (load-file (concat languages-dir "scss.el"))))
+
+(add-hook 'coffee-mode-hook
+  (lambda () (load-file (concat languages-dir "coffee.el"))))

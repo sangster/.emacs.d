@@ -1,3 +1,3 @@
 
-(set-variable c-basic-offset 2)
+(setq css-indent-offset 2)
 

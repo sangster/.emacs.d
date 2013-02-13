@@ -33,3 +33,8 @@
   (interactive)
   (query-replace-regexp ":\\(\\w+\\) =>" "\\1:"))
 
+
+(load "journal")
+(if (file-directory-p "~/docs/text/datalinks/journal/")
+    (setq-default journal-dir "~/docs/text/datalinks/journal/"))
+
