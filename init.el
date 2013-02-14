@@ -24,14 +24,17 @@
 
 (setq scss-compile-at-save nil)
 
-
-;; org-mode
-(setq org-agenda-files (quote ("~/docs/text/org")))
-
 (defun ruby-replace-hash-rocket ()
   "Replace :symbol => value with symbol: value"
   (interactive)
   (query-replace-regexp ":\\(\\w+\\) =>" "\\1:"))
+
+;;
+;; org-mode
+;;
+(setq org-agenda-files "~/.emacs.d/org-agenda-files")
+(setq org-default-notes-file "~/docs/text/datalinks/notes.org")
+(define-key global-map "\C-cc" 'org-capture)
 
 
 (load "journal")

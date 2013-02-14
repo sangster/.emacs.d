@@ -62,16 +62,13 @@ e.g. Sunday, September 17, 2000."
 (defun tomorrow-time ()
   "*Provide the date/time 24 hours from the time now in the same format as current-time."
   (setq
-   now-time (current-time)              ; get the time now
-   hi (car now-time)                    ; save off the high word
-   lo (car (cdr now-time))              ; save off the low word
-   msecs (nth 2 now-time)               ; save off the milliseconds
+   now-time (current-time)   ; get the time now
+   hi (car now-time)         ; save off the high word
+   lo (car (cdr now-time))   ; save off the low word
+   msecs (nth 2 now-time)    ; save off the milliseconds
    )
 
-    (if (> lo 44671)                      ; If the low word is too big
-                                        ; for adding to,
-              (setq hi (+ hi 2)  lo (- lo 44672)) ; carry 2 to the
-                                        ; high word and subtract from
-                                        ; the low,
-      
-        ))
+  (if (> lo 44671)           ; If the low word is too big for adding to,
+      (setq hi (+ hi 2)      ; carry 2 to the high word and subtract
+            lo (- lo 44672)) ; from the low,  
+    ))
