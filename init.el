@@ -14,13 +14,10 @@
 (load-file (concat dotfiles-dir "auto-complete.el"))
 
 
-;; backport some functionality to Emacs 22 if needed
-(require 'dominating-file)
-
-
 (load-file (concat dotfiles-dir "starter-kit.el"))
 (load-file (concat dotfiles-dir "system-specific.el"))
 (load-file (concat dotfiles-dir "languages.el"))
+(load-file (concat dotfiles-dir "capture-templates.el"))
 
 (setq scss-compile-at-save nil)
 
@@ -32,12 +29,14 @@
 ;;
 ;; org-mode
 ;;
-(setq org-agenda-files "~/.emacs.d/org-agenda-files")
-(setq org-default-notes-file "~/docs/text/datalinks/notes.org")
+(setq datalinks-dir "~/docs/text/datalinks/"
+      org-agenda-files "~/.emacs.d/org-agenda-files"
+      org-default-notes-file (concat datalinks-dir "notes.org"))
+
 (define-key global-map "\C-cc" 'org-capture)
 
 
 (load "journal")
-(if (file-directory-p "~/docs/text/datalinks/journal/")
-    (setq-default journal-dir "~/docs/text/datalinks/journal/"))
+(if (file-directory-p (concat datalinks-dir "journal/"))
+    (setq-default journal-dir (concat datalinks-dir "journal/")))
 
