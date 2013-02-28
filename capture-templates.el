@@ -1,6 +1,6 @@
 (defun sangster/find-jira-point ()
   ; (debug)
-  (while (org-up-heading-safe))
+  (goto-char (point-min))
   (let ((title-marker (org-find-exact-headline-in-buffer "Jiras")))
     (if title-marker
         (goto-char title-marker)
@@ -20,7 +20,9 @@
       (insert jira-tag)
       (newline))))
 
+; --------------------
+
 (setq org-capture-templates
       '( ("w" "Work Notes" entry
           (file+function (concat datalinks-dir "work-notes.org") sangster/find-jira-point)
-          "* %^{prompt|PVT-|EDR-}\n%?")))
+          "*** %T\n\n%?")))
