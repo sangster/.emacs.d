@@ -17,6 +17,8 @@
 (load-file (concat dotfiles-dir "starter-kit.el"))
 (load-file (concat dotfiles-dir "system-specific.el"))
 (load-file (concat dotfiles-dir "languages.el"))
+
+(load-file (concat dotfiles-dir "jira.el"))
 (load-file (concat dotfiles-dir "capture-templates.el"))
 
 (setq scss-compile-at-save nil)

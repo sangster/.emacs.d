@@ -18,6 +18,11 @@
                (org-end-of-subtree t))
       (org-insert-subheading t)
       (insert jira-tag)
+      (let ((summary-marker (point-marker)))
+        (jira/fetch-summary jira-tag
+                            (lambda (summary) (save-excursion
+                                           (goto-char summary-marker)
+                                           (insert ":" summary)))))
       (newline))))
 
 ; --------------------
