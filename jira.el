@@ -29,7 +29,7 @@
   (let (passwd)
     (if jira-password
         (setq passwd jira-password)  
-      (setq passwd (password-read "Jira Password: " "jira-password")))
+      (setq passwd (read-passwd "Jira Password: ")))
     
     (if jira-save-password
         (custom-set-variables '(jira-password passwd)))
