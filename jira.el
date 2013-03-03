@@ -4,7 +4,7 @@
 (defcustom jira-username nil
   "Your login username for Jira."
   :group 'jira
-  :type 'string )
+  :type '(string) )
 
 (defcustom jira-save-password nil
   "Save password in plain-text cache. Warning: it may be unwise to save your password in plain-text."
@@ -14,7 +14,7 @@
 (defcustom jira-password nil
   "Your login password for Jira. Leave empty to prompt."
   :group 'jira
-  :type 'string)
+  :type '(string))
 
 
 (defun jira/fetch-summary (jira-tag callback)
