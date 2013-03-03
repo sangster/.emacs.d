@@ -34,17 +34,16 @@
     (if jira-save-password
         (custom-set-variables '(jira-password passwd)))
 
-    (message "%s:%s" jira-username passwd)
-    
-    (let ((url-request-extra-headers
-           `(("Authorization" . ,(concat "Basic "
-                                         (base64-encode-string (concat jira-username ":" passwd)))))))
-      
-      (lexical-let ((callback callback))
+    (lexical-let ((callback callback))
+      (let ((url-request-extra-headers
+             `(("Authorization" . ,(concat "Basic "
+                                           (base64-encode-string (concat jira-username ":" passwd)))))))
         (url-retrieve (concat "http://jira/rest/api/2/issue/" jira-tag)
-                      (lambda (&rest args)
-                        (re-search-forward "\"summary\":\"\\([^\"]+\\)\"")
-                        (funcall callback (match-string 1))))))))
+                    (lambda (&rest args)
+                      (re-search-forward "\"summary\":\"\\([^\"]+\\)\"")
+                      (funcall callback (match-string 1))))))))
 
 
-; (jira/fetch-summary "PVT-217" (lambda (str) (message "%s" str)))
+; (jira/fetch-summary "PVT-333" (lambda (str) (message "\"%s\"" str)))
+
+
