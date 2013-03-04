@@ -34,14 +34,18 @@
     (if jira-save-password
         (custom-set-variables '(jira-password passwd)))
 
-    (lexical-let ((callback callback))
+    (lexical-let ((callback callback)
+                  (jira-tag jira-tag))
       (let ((url-request-extra-headers
              `(("Authorization" . ,(concat "Basic "
                                            (base64-encode-string (concat jira-username ":" passwd)))))))
         (url-retrieve (concat "http://jira/rest/api/2/issue/" jira-tag)
-                    (lambda (&rest args)
-                      (re-search-forward "\"summary\":\"\\([^\"]+\\)\"")
-                      (funcall callback (match-string 1))))))))
+                      (lambda (&rest args)
+                        (condition-case nil
+                            (progn
+                              (re-search-forward "\"summary\":\"\\([^\"]+\\)\"")
+                              (funcall callback (match-string 1)))
+                          (error (message "Jira error: Make sure that your user/pass is correct and that \"%s\" exists" jira-tag)))))))))
 
 
 ; (jira/fetch-summary "PVT-333" (lambda (str) (message "\"%s\"" str)))
