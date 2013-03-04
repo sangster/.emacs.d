@@ -34,7 +34,7 @@
 
 ; --------------------
 
-(setq org-capture-templates
-      '( ("w" "Work Notes" plain
-          (file+function (concat datalinks-dir "work-notes.org") sangster/find-jira-point)
-          "\n\n*** %T\n%?")))
+(add-to-list 'org-capture-templates
+             '("w" "Work Notes" plain
+               (file+function (concat datalinks-dir "work-notes.org") sangster/find-jira-point)
+               "\n\n*** %T\n%?"))
