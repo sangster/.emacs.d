@@ -26,7 +26,8 @@
 
       ; else, add the new heading for it and download its summary
       (org-insert-subheading t)
-      (insert jira-tag)
+      (insert (org-make-link-string (concat "http://jira/browse/" jira-tag)
+                                    jira-tag))
 
       (lexical-let ((summary-marker (point-marker)))
         (org-entry-put (point) "ID" jira-tag)
