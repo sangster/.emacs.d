@@ -1,0 +1,13 @@
+* Sangster's emacs setup
+
+** License
+
+See [[file:COPYING][COPYING]] for more details.
+
+** About
+
+After using vi for many, many years, I've decided to give emacs a try
+for a while. This repository will contain my evolving editor init
+files as I learn more about emacs. Feel free to use what you like.
+
+It is based off the excellent [[https://github.com/technomancy/Emacs-starter-kit][starter-kit]] project.
