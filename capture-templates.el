@@ -26,7 +26,7 @@
 
       ; else, add the new heading for it and download its summary
       (org-insert-subheading t)
-      (insert (org-make-link-string (concat "http://jira/browse/" jira-tag)
+      (insert " TODO " (org-make-link-string (concat "http://jira/browse/" jira-tag)
                                     jira-tag))
 
       (lexical-let ((summary-marker (point-marker)))
@@ -51,3 +51,7 @@
              '("w" "Work Notes" plain
                (file+function (concat datalinks-dir "work-notes.org") sangster/find-jira-point)
                "\n\n*** %T\n%?"))
+
+(add-to-list 'org-capture-templates
+             '("p" "Phone call" entry (file (concat datalinks-dir "phonecalls.org"))
+               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t))
